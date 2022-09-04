@@ -1,6 +1,6 @@
 #include "mbed.h"
 #include "math.h"
-#define espera   5ms
+#define espera   10ms
 
 
 BusOut columnas(D2,D3,D4,D5,D6,D7,D8,D9);
@@ -25,31 +25,35 @@ int main()
     while (true) {
         actual1 = botton1;
         if(!actual1 && anterior1){
-        if(j == 8){
-            if(i==8){
-                i = 0;
+            if(j == 8){
+                if(i==8){
+                    i = 1;
+                }
+                else{
+                    i++;
+                }
+                j = 1;
             }
-            j = 1;
-            i++;
-        }
-        else{
-            j++;
-        }
+            else{
+                j++;
+            }
         }
         anterior1 = actual1;
 
         actual2 = botton2;
         if(!actual2 && anterior2){
-        if(j == 1){
-            if(i == 1){
-                i = 9;
+            if(j == 1){
+                if(i == 1){
+                    i = 8;
+                }
+                else{
+                    i--;
+                }
+                j = 8;
             }
-            j = 8;
-            i--;
-        }
-        else{
-            j--;
-        }
+            else{
+                j--;
+            }
         }
         anterior2 = actual2;
 
